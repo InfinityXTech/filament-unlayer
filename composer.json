@@ -1,21 +1,21 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "infinityxtech/filament-unlayer",
+    "description": "Filament wrapper for unlayer editor.",
     "keywords": [
-        ":vendor_name",
+        "InfinityXTech",
         "laravel",
-        ":package_slug"
+        "filament-unlayer"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/InfinityXTech/filament-unlayer",
     "support": {
-        "issues": "https://github.com/:vendor_slug/:package_slug/issues",
-        "source": "https://github.com/:vendor_slug/:package_slug"
+        "issues": "https://github.com/InfinityXTech/filament-unlayer/issues",
+        "source": "https://github.com/InfinityXTech/filament-unlayer"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "InfinityXTech",
+            "email": "business@infinity-x.tech",
             "role": "Developer"
         }
     ],
@@ -23,7 +23,6 @@
         "php": "^8.1",
         "filament/filament": "^3.0",
         "filament/forms": "^3.0",
-        "filament/tables": "^3.0",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
@@ -41,13 +40,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "InfinityXTech\\FilamentUnlayer\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "InfinityXTech\\FilamentUnlayer\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -67,10 +65,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "InfinityXTech\\FilamentUnlayer\\UnlayerServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "FilamentUnlayer": "InfinityXTech\\FilamentUnlayer\\Facades\\Unlayer"
             }
         }
     },
