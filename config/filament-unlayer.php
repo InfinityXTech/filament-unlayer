@@ -8,6 +8,6 @@ return [
         'disk' => 'public',
         'path' => 'unlayer',
         'validation' => 'required|image',
-        'middlewares' => []
-    ]
+        'middlewares' => [],
+    ],
 ];

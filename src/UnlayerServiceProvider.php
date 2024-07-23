@@ -4,9 +4,9 @@ namespace InfinityXTech\FilamentUnlayer;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
+use Filament\Support\Assets\Css;
 use Filament\Support\Facades\FilamentAsset;
 use Spatie\LaravelPackageTools\Package;
-use Filament\Support\Assets\Css;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class UnlayerServiceProvider extends PackageServiceProvider
@@ -60,7 +60,7 @@ class UnlayerServiceProvider extends PackageServiceProvider
     {
         return [
             AlpineComponent::make('filament-unlayer', __DIR__ . '/../resources/dist/filament-unlayer.js'),
-            Css::make('filament-unlayer', __DIR__ . '/../resources/dist/filament-unlayer.css')
+            Css::make('filament-unlayer', __DIR__ . '/../resources/dist/filament-unlayer.css'),
         ];
     }
 }

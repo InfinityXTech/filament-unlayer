@@ -9,6 +9,7 @@ class Unlayer extends Field
     protected string $view = 'filament-unlayer::filament-unlayer';
 
     protected string $displayMode = 'email';
+
     // protected mixed $defaultState = [
     //     'html' => '', 'design' => []
     // ];

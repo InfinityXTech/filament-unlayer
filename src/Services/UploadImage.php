@@ -19,8 +19,8 @@ class UploadImage extends Controller
 
         return response()->json([
             'file' => [
-                'url' => Storage::disk(config('filament-unlayer.upload.disk'))->url($path)
-            ]
+                'url' => Storage::disk(config('filament-unlayer.upload.disk'))->url($path),
+            ],
         ]);
     }
 }
