@@ -4,7 +4,6 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/InfinityXTech/filament-unlayer.svg?style=flat-square)](https://packagist.org/packages/InfinityXTech/filament-unlayer)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/InfinityXTech/filament-unlayer/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/InfinityXTech/filament-unlayer/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/InfinityXTech/filament-unlayer/fix-php-code-styling.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/InfinityXTech/filament-unlayer/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/InfinityXTech/filament-unlayer.svg?style=flat-square)](https://packagist.org/packages/InfinityXTech/filament-unlayer)
 
 
@@ -60,6 +59,7 @@ Unlayer::make('description')->required()
 You can still chain other methods on these since:
 
 `SelectTemplate` is extending filament `Select` field.
+
 `Unlayer` is extending filament `Field` class.
 
 ## Changelog
