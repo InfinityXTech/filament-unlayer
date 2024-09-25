@@ -1,6 +1,6 @@
-name: Build and Deploy
+name: Build JS and CSS
 
-# Trigger this workflow on any push to the main branch
+# Trigger this workflow on any push to the main branch or pull request
 on:
   push:
     branches:
@@ -16,19 +16,29 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Step 2: Set up Node.js
+    # Step 2: Set up PHP
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.3'  # Set the PHP version you're using
+        tools: composer
+
+    # Step 3: Install PHP dependencies (composer install)
+    - name: Install PHP dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    # Step 4: Set up Node.js
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
         node-version: '22.x'
 
-    # Step 3: Install dependencies
-    - name: Install dependencies
+    # Step 5: Install NPM dependencies
+    - name: Install NPM dependencies
       run: npm install
 
-    # Step 4: Build JavaScript and CSS
+    # Step 6: Build JavaScript and CSS
     - name: Build JS and CSS
       run: |
-        npm run build:scripts   # This will build JS based on your package.json script
-        npm run build:styles    # This will build CSS based on your package.json script
-
+        npm run build:scripts   # Build JS based on your package.json script
+        npm run build:styles    # Build CSS based on your package.json script
