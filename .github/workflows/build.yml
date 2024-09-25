@@ -42,3 +42,13 @@ jobs:
       run: |
         npm run build:scripts   # Build JS based on your package.json script
         npm run build:styles    # Build CSS based on your package.json script
+
+    # Step 7: Commit and push updated build files
+    - name: Commit updated build files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add resources/dist/*
+        git commit -m "Update built JS and CSS files"
+        git push
+      continue-on-error: true  # Avoid failing if there are no changes to commit
