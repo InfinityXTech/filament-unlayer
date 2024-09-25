@@ -112,6 +112,11 @@ export default function initUnlayer({
                             internalUpdate = true;
                             if (self.state) {
                                 self.state = { html: data.html, design: JSON.parse(JSON.stringify(data.design)) };
+                            } else {
+                                self.state = {
+                                    html: data.html || '',
+                                    design: JSON.parse(JSON.stringify(data.design || {}))
+                                };
                             }
                             let el = document.getElementById(id);
                             if (el) {

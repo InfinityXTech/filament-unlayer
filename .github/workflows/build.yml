@@ -1,0 +1,34 @@
+name: Build and Deploy
+
+# Trigger this workflow on any push to the main branch
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Check out the code
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    # Step 2: Set up Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22.x'
+
+    # Step 3: Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Step 4: Build JavaScript and CSS
+    - name: Build JS and CSS
+      run: |
+        npm run build:scripts   # This will build JS based on your package.json script
+        npm run build:styles    # This will build CSS based on your package.json script
+
