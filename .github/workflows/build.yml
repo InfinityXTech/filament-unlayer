@@ -1,6 +1,6 @@
 name: Build JS and CSS
 
-# Trigger this workflow on any push to the main branch or pull request
+# Trigger this workflow on any push to the main branch
 on:
   push:
     branches:
@@ -15,15 +15,16 @@ jobs:
     # Step 1: Check out the code
     - name: Checkout repository
       uses: actions/checkout@v3
+      with:
+        persist-credentials: false  # Disables default token handling
 
     # Step 2: Set up PHP
     - name: Set up PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.3'  # Set the PHP version you're using
-        tools: composer
+        php-version: '8.3'
 
-    # Step 3: Install PHP dependencies (composer install)
+    # Step 3: Install PHP dependencies
     - name: Install PHP dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
@@ -37,18 +38,19 @@ jobs:
     - name: Install NPM dependencies
       run: npm install
 
-    # Step 6: Build JavaScript and CSS
+    # Step 6: Build JavaScript and CSS files
     - name: Build JS and CSS
       run: |
-        npm run build:scripts   # Build JS based on your package.json script
-        npm run build:styles    # Build CSS based on your package.json script
+        npm run build:scripts
+        npm run build:styles
 
     # Step 7: Commit and push updated build files
     - name: Commit updated build files
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Use the GitHub provided token
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add resources/dist/*
         git commit -m "Update built JS and CSS files"
-        git push
-      continue-on-error: true  # Avoid failing if there are no changes to commit
+        git push "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" HEAD:${{ github.ref }}
