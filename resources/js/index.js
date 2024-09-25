@@ -112,11 +112,6 @@ export default function initUnlayer({
                             internalUpdate = true;
                             if (self.state) {
                                 self.state = { html: data.html, design: JSON.parse(JSON.stringify(data.design)) };
-                            } else {
-                                self.state = {
-                                    html: data.html || '',
-                                    design: JSON.parse(JSON.stringify(data.design || {}))
-                                };
                             }
                             let el = document.getElementById(id);
                             if (el) {
@@ -137,6 +132,11 @@ export default function initUnlayer({
                         if (self.state) {
                             self.state = boot ? { html: self.state.html, design: JSON.parse(JSON.stringify(self.state.design)) }
                                               : { html: data.html, design: JSON.parse(JSON.stringify(data.design)) };
+                        } else {
+                            self.state = {
+                                html: data.html || '',
+                                design: JSON.parse(JSON.stringify(data.design || {}))
+                            };
                         }
                         let el = document.getElementById(id);
                         if (el) {
