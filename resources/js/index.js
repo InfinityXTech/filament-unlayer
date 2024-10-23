@@ -82,6 +82,7 @@ export default function initUnlayer({
     displayMode,
     id,
     uploadUrl,
+    additionalOptions = {}
 }) {
     return {
         state,
@@ -89,10 +90,10 @@ export default function initUnlayer({
         init() {
             const self = this; // Capture the current context
             loadScript(() => {
-                unlayer.init({
+                unlayer.init(Object.assign({
                     id: id,
                     displayMode: displayMode
-                });
+                }, additionalOptions));
 
                 unlayer.registerCallback('image', (file, done) => {
                     uploadImage(file.attachments[0], uploadUrl)
