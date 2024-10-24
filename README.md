@@ -18,6 +18,13 @@ You can install the package via composer:
 composer require InfinityXTech/filament-unlayer
 ```
 
+Create a cast within your model:
+
+```php
+protected $casts = [
+   'content' => 'array',
+];
+```
 
 You can publish the config file with:
 
