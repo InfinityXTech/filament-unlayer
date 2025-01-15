@@ -63,7 +63,8 @@ class Unlayer extends Field
         return $this;
     }
 
-    public function getAdditionalOptions (): array {
+    public function getAdditionalOptions(): array
+    {
         return $this->additionalOptions;
     }
 }
