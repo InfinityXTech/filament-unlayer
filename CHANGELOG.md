@@ -2,6 +2,10 @@
 
 All notable changes to `filament-unlayer` will be documented in this file.
 
+## v1.0.4 - 2025-01-15
+
+**Full Changelog**: https://github.com/InfinityXTech/filament-unlayer/compare/v1.0.3...v1.0.4
+
 ## v1.0.3 - 2024-11-08
 
 ### What's Changed
