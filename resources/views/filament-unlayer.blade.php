@@ -11,7 +11,8 @@
             state: $wire.entangle('{{ $getStatePath() }}'),
             displayMode: '{{ $getDisplayMode() }}',
             id: '{{ $getId() }}',
-            uploadUrl: '{{ $getUploadUrl() }}'
+            uploadUrl: '{{ $getUploadUrl() }}',
+            additionalOptions: {{ json_encode($getAdditionalOptions()) }}
         })"
     >
         <div wire:ignore x-ref="unlayer" id="{{$getId()}}" style="height: {{ $getHeight() }};"></div>

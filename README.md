@@ -63,6 +63,15 @@ SelectTemplate::make('template')
 Unlayer::make('description')->required()
 ```
 
+If you want to pass additional options to unlayer, which will join default object set by plugin with your additional data you can use:
+
+```php
+Unlayer::make('description')
+    ->additionalOptions([
+        'option' => 'value'
+    ])
+```
+
 You can still chain other methods on these since:
 
 `SelectTemplate` is extending filament `Select` field.

@@ -10,6 +10,8 @@ class Unlayer extends Field
 
     protected string $displayMode = 'email';
 
+    protected array $additionalOptions = [];
+
     // protected mixed $defaultState = [
     //     'html' => '', 'design' => []
     // ];
@@ -52,5 +54,16 @@ class Unlayer extends Field
     public function getUploadUrl(): string
     {
         return route(config('filament-unlayer.upload.url_name'));
+    }
+
+    public function additionalOptions(array $additionalOptions): static
+    {
+        $this->additionalOptions = $additionalOptions;
+
+        return $this;
+    }
+
+    public function getAdditionalOptions (): array {
+        return $this->additionalOptions;
     }
 }
